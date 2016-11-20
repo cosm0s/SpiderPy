@@ -1,5 +1,7 @@
 import urllib
-import html.Parser as data
+
+import core.html.Parser as data
+
 
 class HTML:
 

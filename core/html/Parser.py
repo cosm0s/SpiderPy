@@ -1,5 +1,7 @@
-from html.parser import HTMLParser
 import re
+
+from html.parser import HTMLParser
+
 
 class Parser(HTMLParser):
 
