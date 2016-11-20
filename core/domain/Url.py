@@ -18,7 +18,7 @@ class Url:
         self.inspect = inspect
         self.connected = connected
 
-    def toDBCollection(self):
+    def to_DB_collection(self):
         return {
             'parent': self.parent,
             'url': self.url,

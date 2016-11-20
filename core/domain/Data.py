@@ -6,7 +6,7 @@ class Data:
         self.type = type
         self.data = data
 
-    def toDBCollection(self):
+    def to_DB_collection(self):
         return {
             "root":self.root,
             "type":self.type,
