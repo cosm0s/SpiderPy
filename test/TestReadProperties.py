@@ -6,7 +6,8 @@ import utils.ReadProperties as ReadProperties
 class TestReadProperties(unittest.TestCase):
 
     def setUp(self):
-        self.root_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+        self.root_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                                     '..')
         config = ReadProperties.ConfigParser()
         self.prop = config.read_config(self.root_dir)
 
