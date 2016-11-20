@@ -1,4 +1,5 @@
 import unittest
+import os
 import utils.ReadProperties as ReadProperties
 
 
@@ -13,6 +14,9 @@ class TestReadProperties(unittest.TestCase):
 
     def test_thread_max(self):
         self.assertIsNotNone(self.prop.get('thread', 'max'))
+
+    def test_properties_file(self):
+        self.assertTrue(os.path.isfile(os.path.join('..', 'conf', 'spiderpy.properties')))
 
 if __name__ == '__main__':
     unittest.main()
