@@ -1,7 +1,9 @@
 import unittest
 import utils.ReadProperties as ReadProperties
 
+
 class TestReadProperties(unittest.TestCase):
+
 
     def setUp(self):
         config = ReadProperties.ConfigParser()
