@@ -1,15 +1,17 @@
 import urllib.request as request
 
-import core.html.Parser as data
+import core.html.Parser as Data
 
 
 class HTML:
 
-    def get_html(self, url):
+    @staticmethod
+    def get_html(url):
         url = request.urlopen(url)
         return url.read()
 
-    def get_links(self, html):
-        parser = data.Parser()
+    @staticmethod
+    def get_links(html):
+        parser = Data.Parser()
         parser.feed(str(html))
         return parser.get_unique_url()

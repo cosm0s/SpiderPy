@@ -1,7 +1,8 @@
 
 class Url:
 
-    def __init__(self, parent, url, scheme, netloc, path, params, query, fragment, username, password, hostname, port,
+    def __init__(self, parent, url, scheme, netloc, path, params, query,
+                 fragment, username, password, hostname, port,
                  inspect, connected):
         self.parent = parent
         self.url = url
@@ -18,7 +19,7 @@ class Url:
         self.inspect = inspect
         self.connected = connected
 
-    def to_DB_collection(self):
+    def to_db_collection(self):
         return {
             'parent': self.parent,
             'url': self.url,

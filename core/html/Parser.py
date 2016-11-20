@@ -4,6 +4,8 @@ from html.parser import HTMLParser
 
 
 class Parser(HTMLParser):
+    def error(self, message):
+        pass
 
     def __init__(self, links=None):
         HTMLParser.__init__(self)
@@ -16,17 +18,19 @@ class Parser(HTMLParser):
         if tag == 'a':
             self.links.append(dict(attrs).get('href'))
         for key, value in dict(attrs).items():
-            if key != 'href' and not value is None:
+            if key != 'href' and value is not None:
                 self.get_data_links(value)
-
 
     def handle_data(self, data):
         self.get_data_links(data)
 
     def get_data_links(self, value):
-        if re.match('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', value) is not None:
-            self.links = self.links + re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', value)
-
+        if re.match('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%'
+                    '[0-9a-fA-F][0-9a-fA-F]))+', value) is not None:
+            self.links = self.links + re.findall('http[s]?://(?:[a-zA-Z]|[0-9]'
+                                                 '|[$-_@.&+]|[!*\(\),]|(?:%'
+                                                 '[0-9a-fA-F][0-9a-fA-F]))+',
+                                                 value)
 
     def get_unique_url(self):
         return set(self.links)

@@ -1,14 +1,14 @@
 
 class Data:
 
-    def __init__(self, root, type, data):
+    def __init__(self, root, data_type, data):
         self.root = root
-        self.type = type
+        self.data_type = data_type
         self.data = data
 
-    def to_DB_collection(self):
+    def to_db_collection(self):
         return {
-            "root":self.root,
-            "type":self.type,
+            "root": self.root,
+            "type": self.data_type,
             "data": self.data,
         }

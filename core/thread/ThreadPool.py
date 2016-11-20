@@ -1,4 +1,6 @@
 from queue import Queue
+from core.thread.Worker import Worker
+
 
 class ThreadPool:
     def __init__(self, num_threads):
@@ -7,13 +9,16 @@ class ThreadPool:
             Worker(self.tasks)
 
     def add_task(self, func, *args, **kargs):
-        self.tasks.put((func,args, kargs))
+        self.tasks.put((func, args, kargs))
 
     def wait_completion(self):
         self.tasks.join()
 
-    def stop(self):
+    # TODO remove when this is implemented
+    @staticmethod
+    def stop():
         print("")
 
-    def info(self):
+    @staticmethod
+    def info():
         print("")
