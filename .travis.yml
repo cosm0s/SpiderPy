@@ -6,6 +6,7 @@ python:
 install:
   - pip install pytest pytest-cov
   - pip install coveralls pytest-pep8
+  - pip install mongomock
 script:
   - py.test test/*.py --doctest-modules --pep8 test -v --cov test --cov-report term-missing
 after_success:
